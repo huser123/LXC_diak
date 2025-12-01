@@ -36,6 +36,8 @@ for KONTENER_NEV in $LISTA; do
     lxc copy "${SABLON_NEV}" "${KONTENER_NEV}"
     lxc start "${KONTENER_NEV}"
 
+    sleep 2
+
     lxc exec "${KONTENER_NEV}" -- bash -c "cat >/etc/systemd/network/eth0.network" <<EOF
 [Match]
 Name=eth0
